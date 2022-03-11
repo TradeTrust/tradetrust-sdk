@@ -1,0 +1,29 @@
+{
+  "version": "https://schema.openattestation.com/2.0/schema.json",
+  "data": {
+    "$template": {
+      "name": "b8343c74-6552-472b-9d0d-972c6e4e4756:string:main",
+      "type": "fef3ebd7-a22f-4f3b-acb3-b3d481558ba4:string:EMBEDDED_RENDERER",
+      "url": "2f3ffb6a-6bea-42d2-86da-1a52c847c364:string:https://tutorial-renderer.openattestation.com"
+    },
+    "recipient": {
+      "name": "18e7ee14-0b07-4b7e-acbb-86264fb29c8f:string:John Doe"
+    },
+    "issuers": [
+      {
+        "name": "48c3e59f-0fbf-4de1-a446-b8c95d090be2:string:Demo Issuer",
+        "tokenRegistry": "980234b7-2e27-49ce-b7a7-954145ceb96c:string:0x46E31c72bcaF9Ee9AC03361745d9EcC502368894",
+        "identityProof": {
+          "type": "d479f41d-5141-4a82-9434-b9b8a8896c0e:string:DNS-TXT",
+          "location": "cba7ea61-486f-4cda-a312-27e6a7e4beb4:string:sample.cbt.reddatetech.com"
+        }
+      }
+    ]
+  },
+  "signature": {
+    "type": "SHA3MerkleProof",
+    "targetHash": "9704c6091ac3e4755532a9272a33d60864cffece4fa5442fd23b163002e2c393",
+    "proof": [],
+    "merkleRoot": "9704c6091ac3e4755532a9272a33d60864cffece4fa5442fd23b163002e2c393"
+  }
+}
