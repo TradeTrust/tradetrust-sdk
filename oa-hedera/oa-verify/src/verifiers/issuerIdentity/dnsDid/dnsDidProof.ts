@@ -52,11 +52,12 @@ const verifyIssuerDnsDid = async ({
     location,
     key,
     status: records.some((record) => {
-      const parsedDid = HcsDid.fromString(record.publicKey);
+      const publicKey = record.publicKey.split("#").join(";");
+      const parsedDid = HcsDid.fromString(publicKey);
       const network = parsedDid.getNetwork();
       const fileId = FileId.fromString(parsedDid.getAddressBookFileId().toString());
       const did = new HcsDid(network, PublicKey.fromString(key), fileId);
-      return record.publicKey.toLowerCase() === did.toString().toLowerCase();
+      return publicKey.toLowerCase() === did.toString().toLowerCase();
     }) ? "VALID" : "INVALID",
   };
 };

@@ -64,12 +64,12 @@ const hederaResolve = async (
 ): Promise<DIDResolutionResult> => {
   let parsedDid;
   try {
-    parsedDid = HcsDid.fromString(did);
+    parsedDid = HcsDid.fromString(did.split("#").join(";"));
   } catch (e) {
     return {
       didResolutionMetadata: {
         error: Errors.invalidDid,
-        message: `Not a valid ${did}`,
+        message: `Not a valid ${did.split("#").join(";")}`,
       },
       didDocumentMetadata: {},
       didDocument: null,

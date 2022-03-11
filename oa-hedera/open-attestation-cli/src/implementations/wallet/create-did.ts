@@ -21,5 +21,5 @@ export const create = async ({
 
   signale.info(`Hedera did successfully created.`);
 
-  return doc.getId();
+  return doc.getId().replaceAll(";","#");
 };

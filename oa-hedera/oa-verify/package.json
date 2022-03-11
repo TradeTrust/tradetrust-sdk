@@ -1,6 +1,6 @@
 {
   "name": "@tianhr/oa-verify",
-  "version": "0.1.8-development",
+  "version": "0.1.9-development",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

@@ -11,13 +11,14 @@ export const sign: SigningFunction = (
 ): Promise<string> => {
   let privateKey: PrivateKey;
   if (SigningKey.guard(keyOrSigner)) {
-    const parsedDid = HcsDid.fromString(keyOrSigner.public);
+    const publicKey = keyOrSigner.public.split("#").join(";");
+    const parsedDid = HcsDid.fromString(publicKey);
     const network = parsedDid.getNetwork();
     privateKey = PrivateKey.fromString(keyOrSigner.private);
     const fileId = FileId.fromString(parsedDid.getAddressBookFileId().toString());
     const did = new HcsDid(network, privateKey.publicKey, fileId);
-    if (!keyOrSigner.public.toLowerCase().includes(did.toString().toLowerCase())) {
-      throw new Error(`Private key is wrong for ${keyOrSigner.public}`);
+    if (!publicKey.toLowerCase().includes(did.toString().toLowerCase())) {
+      throw new Error(`Private key is wrong for ${publicKey}`);
     }
   } else {
     throw new Error(`SigningKey type is wrong for ${keyOrSigner}`);
