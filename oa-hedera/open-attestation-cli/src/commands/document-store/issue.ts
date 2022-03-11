@@ -1,0 +1,50 @@
+import { Argv } from "yargs";
+import { error, info, success } from "signale";
+import { getLogger } from "../../logger";
+import { issueToDocumentStore } from "../../implementations/document-store/issue";
+import { DocumentStoreIssueCommand } from "./document-store-command.type";
+import { withNetworkAndWalletSignerOption } from "../shared";
+import { getErrorMessage, getEtherscanAddress, addAddressPrefix } from "../../utils";
+
+const { trace } = getLogger("document-store:issue");
+
+export const command = "issue [options]";
+
+export const describe = "Issue a hash to a document store deployed on the blockchain";
+
+export const builder = (yargs: Argv): Argv =>
+  withNetworkAndWalletSignerOption(
+    yargs
+      .option("address", {
+        alias: "a",
+        description: "Address to issue the hash to",
+        type: "string",
+        demandOption: true,
+      })
+      .option("hash", {
+        alias: "h",
+        description: "Hash to add to the document store",
+        type: "string",
+        demandOption: true,
+      })
+  );
+
+export const handler = async (args: DocumentStoreIssueCommand): Promise<string | undefined> => {
+  trace(`Args: ${JSON.stringify(args, null, 2)}`);
+  try {
+    info(`Issuing ${args.hash} to document store ${args.address}`);
+    const transactionReceipt = await issueToDocumentStore({
+      ...args,
+      // add 0x automatically in front of the hash if it's not provided
+      hash: addAddressPrefix(args.hash),
+    });
+    if (transactionReceipt.status._code != 22) throw new Error(`DocumentStore issue receipt is:${transactionReceipt}`);
+    success(`Document/Document Batch with hash ${args.hash} has been issued on ${args.address}`);
+    info(
+      `Find more details at ${getEtherscanAddress({ network: args.network })}/hedera/search?q=${args.address}`
+    );
+    return args.address;
+  } catch (e) {
+    error(getErrorMessage(e));
+  }
+};

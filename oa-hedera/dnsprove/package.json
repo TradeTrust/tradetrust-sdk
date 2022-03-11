@@ -1,0 +1,101 @@
+{
+  "name": "@tianhr/dnsprove",
+  "version": "0.0.6-development",
+  "description": "Helper utility for retrieving OpenAttestations document store address records from DNS",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Open-Attestation/dnsprove.git"
+  },
+  "main": "dist/index.js",
+  "author": "HR TIAN",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "test": "jest",
+    "coverage": "npm test -- --coverage",
+    "postcoverage": "open-cli coverage/lcov-report/index.html",
+    "commit": "git-cz",
+    "commit:retry": "git-cz --retry",
+    "lint": "eslint . --ext js,ts,tsx",
+    "lint:fix": "npm run lint -- --fix",
+    "docs": "documentation readme src/index.ts --section=API --document-exported --babel=./.babelrc --parse-extension=ts",
+    "postdocs": "git add README.md",
+    "clean": "rimraf dist",
+    "prebuild": "npm run docs && npm run clean",
+    "build": "tsc --emitDeclarationOnly && babel src -d dist --ignore **/*.d.ts,src/**/*.spec.ts,src/**/*.test.ts -x .js,.ts,.tsx",
+    "preversion": "npm run lint && npm test && npm run build",
+    "semantic-release": "semantic-release"
+  },
+  "types": "dist/ts",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": [
+      "eslint --fix --ext js,ts,tsx",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "generator-nod"
+  ],
+  "dependencies": {
+    "@types/axios": "0.14.0",
+    "axios": "^0.21.1",
+    "debug": "^4.3.1",
+    "runtypes": "^6.3.0"
+  },
+  "peerDependencies": {
+    "@types/node": "17.0.21",
+    "@tianhr/dnsprove": "0.0.4-development"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.13.16",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-typescript": "^7.13.0",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@commitlint/prompt": "^12.1.1",
+    "@ls-age/commitlint-circle": "^1.0.0",
+    "@types/debug": "^4.1.5",
+    "@types/jest": "^26.0.23",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.6.3",
+    "commitizen": "^4.2.3",
+    "documentation": "^13.2.5",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "git-cz": "^4.7.6",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "msw": "0.35.0",
+    "open-cli": "^6.0.1",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
+    "semantic-release": "^17.4.2",
+    "ts-jest": "^26.5.5",
+    "typescript": "^4.2.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/@commitlint/prompt"
+    }
+  }
+}

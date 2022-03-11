@@ -1,0 +1,9 @@
+node_modules/
+.npmrc
+dist/
+.idea
+*.iml
+.DS_Store
+coverage
+/log
+.circleci

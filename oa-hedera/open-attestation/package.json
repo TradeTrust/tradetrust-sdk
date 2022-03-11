@@ -1,0 +1,112 @@
+{
+  "name": "@tianhr/open-attestation",
+  "version": "0.0.0-development",
+  "description": "## Usage",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "browser": "dist/index.umd.js",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "benchmark:qr-code": "ts-node --transpile-only benchmarks/qr-code",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:umd && npm run build:type",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs --project ./tsconfig.prod.json",
+    "build:esm": "tsc --module es2015 --outDir dist/esm --project ./tsconfig.prod.json",
+    "build:type": "tsc -d --emitDeclarationOnly --outDir dist/types --project ./tsconfig.prod.json",
+    "build:umd": "rollup -c",
+    "clean": "rimraf dist/",
+    "commit": "git-cz",
+    "commit:retry": "npm run commit -- --retry",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:vc": "scripts/runVcTest.sh",
+    "lint": "eslint . --ext .ts,.json --max-warnings 0",
+    "lint:fix": "npm run lint -- --fix",
+    "publish:schema": "./scripts/publishSchema.sh",
+    "postinstall": "node scripts/postInstall"
+  },
+  "files": [
+    "/dist",
+    "/scripts"
+  ],
+  "author": "Raymond Yeh <yehjxraymond@gmail.com> (http://geek.sg)",
+  "contributors": [
+    "RJ Chow <me@rjchow.com> (https://about.rjchow.com)"
+  ],
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@commitlint/prompt": "^12.1.1",
+    "@ls-age/commitlint-circle": "1.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@types/debug": "^4.1.7",
+    "@types/jest": "^26.0.24",
+    "@types/js-base64": "^3.3.1",
+    "@types/jsonld": "^1.5.6",
+    "@types/lodash": "^4.14.171",
+    "@types/qrcode": "^1.4.1",
+    "@types/uuid": "^8.3.1",
+    "@types/validator": "^13.6.3",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "cbor": "^7.0.6",
+    "commitizen": "^4.2.4",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "git-cz": "^4.7.6",
+    "jest": "^26.6.3",
+    "jest-watch-typeahead": "^0.6.2",
+    "prettier": "^2.3.2",
+    "qrcode": "^1.4.4",
+    "quicktype": "^15.0.260",
+    "rollup": "^2.56.2",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "semantic-release": "^17.4.4",
+    "ts-jest": "^26.5.5",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "@govtechsg/jsonld": "^0.1.0",
+    "@hashgraph/did-sdk-js": "^0.1.1",
+    "@hashgraph/sdk": "^2.7.0",
+    "ajv": "^8.6.2",
+    "ajv-formats": "^2.1.0",
+    "cross-fetch": "^3.1.4",
+    "debug": "^4.3.2",
+    "ethers": "^5.4.3",
+    "flatley": "^5.2.0",
+    "js-base64": "^3.6.1",
+    "js-sha3": "^0.8.0",
+    "lodash": "^4.17.21",
+    "runtypes": "^6.3.2",
+    "tweetnacl": "^1.0.3",
+    "tweetnacl-util": "^0.15.1",
+    "uuid": "^8.3.2",
+    "validator": "^13.6.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Open-Attestation/open-attestation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Open-Attestation/open-attestation/issues"
+  },
+  "homepage": "https://github.com/Open-Attestation/open-attestation#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/@commitlint/prompt"
+    }
+  }
+}

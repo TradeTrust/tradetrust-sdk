@@ -1,0 +1,285 @@
+{
+  "contractName": "IKnowForwarderAddress",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getTrustedForwarder",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getTrustedForwarder\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"getTrustedForwarder()\":{\"notice\":\"return the forwarder we trust to forward relayed transactions to us. the forwarder is required to verify the sender's signature, and verify the call is not a replay.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"@opengsn/gsn/contracts/interfaces/IKnowForwarderAddress.sol\":\"IKnowForwarderAddress\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"@opengsn/gsn/contracts/interfaces/IKnowForwarderAddress.sol\":{\"keccak256\":\"0x5af5b942a223dcdd83ee22d308829a2f780886d251d92e612f2edaa64339edaf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6cce1ecadc5682f07513bf1f2b9ae5d3677c060efd8207e3e89daf944f365acc\",\"dweb:/ipfs/QmTZzCCK15X11N3sfKJubsTNSYd7jY39BnhuSPV2UuLdH9\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier:MIT\npragma solidity ^0.6.2;\n\ninterface IKnowForwarderAddress {\n\n    /**\n     * return the forwarder we trust to forward relayed transactions to us.\n     * the forwarder is required to verify the sender's signature, and verify\n     * the call is not a replay.\n     */\n    function getTrustedForwarder() external view returns(address);\n}\n",
+  "sourcePath": "@opengsn/gsn/contracts/interfaces/IKnowForwarderAddress.sol",
+  "ast": {
+    "absolutePath": "@opengsn/gsn/contracts/interfaces/IKnowForwarderAddress.sol",
+    "exportedSymbols": {
+      "IKnowForwarderAddress": [
+        1902
+      ]
+    },
+    "id": 1903,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1895,
+        "literals": [
+          "solidity",
+          "^",
+          "0.6",
+          ".2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "31:23:15"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 1902,
+        "linearizedBaseContracts": [
+          1902
+        ],
+        "name": "IKnowForwarderAddress",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": {
+              "id": 1896,
+              "nodeType": "StructuredDocumentation",
+              "src": "95:198:15",
+              "text": " return the forwarder we trust to forward relayed transactions to us.\n the forwarder is required to verify the sender's signature, and verify\n the call is not a replay."
+            },
+            "functionSelector": "ce1b815f",
+            "id": 1901,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTrustedForwarder",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 1897,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "326:2:15"
+            },
+            "returnParameters": {
+              "id": 1900,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1899,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 1901,
+                  "src": "351:7:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 1898,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "351:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "350:9:15"
+            },
+            "scope": 1902,
+            "src": "298:62:15",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 1903,
+        "src": "56:306:15"
+      }
+    ],
+    "src": "31:332:15"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "@opengsn/gsn/contracts/interfaces/IKnowForwarderAddress.sol",
+      "exportedSymbols": {
+        "IKnowForwarderAddress": [
+          1902
+        ]
+      },
+      "license": "MIT"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.6",
+            ".2"
+          ]
+        },
+        "id": 1895,
+        "name": "PragmaDirective",
+        "src": "31:23:15"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            1902
+          ],
+          "name": "IKnowForwarderAddress",
+          "scope": 1903
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "functionSelector": "ce1b815f",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "getTrustedForwarder",
+              "overrides": null,
+              "scope": 1902,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " return the forwarder we trust to forward relayed transactions to us.\n the forwarder is required to verify the sender's signature, and verify\n the call is not a replay."
+                },
+                "id": 1896,
+                "name": "StructuredDocumentation",
+                "src": "95:198:15"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 1897,
+                "name": "ParameterList",
+                "src": "326:2:15"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 1901,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 1898,
+                        "name": "ElementaryTypeName",
+                        "src": "351:7:15"
+                      }
+                    ],
+                    "id": 1899,
+                    "name": "VariableDeclaration",
+                    "src": "351:7:15"
+                  }
+                ],
+                "id": 1900,
+                "name": "ParameterList",
+                "src": "350:9:15"
+              }
+            ],
+            "id": 1901,
+            "name": "FunctionDefinition",
+            "src": "298:62:15"
+          }
+        ],
+        "id": 1902,
+        "name": "ContractDefinition",
+        "src": "56:306:15"
+      }
+    ],
+    "id": 1903,
+    "name": "SourceUnit",
+    "src": "31:332:15"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.0",
+  "updatedAt": "2022-02-24T08:47:52.691Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "getTrustedForwarder()": {
+        "notice": "return the forwarder we trust to forward relayed transactions to us. the forwarder is required to verify the sender's signature, and verify the call is not a replay."
+      }
+    },
+    "version": 1
+  }
+}

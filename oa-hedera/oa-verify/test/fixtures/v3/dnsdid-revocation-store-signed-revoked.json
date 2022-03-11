@@ -1,0 +1,76 @@
+{
+  "version": "https://schema.openattestation.com/3.0/schema.json",
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://schemata.openattestation.com/com/openattestation/1.0/DrivingLicenceCredential.json",
+    "https://schemata.openattestation.com/com/openattestation/1.0/OpenAttestation.v3.json",
+    "https://schemata.openattestation.com/com/openattestation/1.0/CustomContext.json"
+  ],
+  "reference": "SERIAL_NUMBER_123",
+  "name": "Republic of Singapore Driving Licence",
+  "issuanceDate": "2010-01-01T19:23:24Z",
+  "validFrom": "2010-01-01T19:23:24Z",
+  "issuer": {
+    "id": "https://example.com",
+    "type": "OpenAttestationIssuer",
+    "name": "DEMO STORE"
+  },
+  "type": [
+    "VerifiableCredential",
+    "DrivingLicenceCredential",
+    "OpenAttestationCredential"
+  ],
+  "credentialSubject": {
+    "id": "did:example:SERIAL_NUMBER_123",
+    "class": [
+      {
+        "type": "3",
+        "effectiveDate": "2010-01-01T19:23:24Z"
+      },
+      {
+        "type": "3A",
+        "effectiveDate": "2010-01-01T19:23:24Z"
+      }
+    ]
+  },
+  "openAttestationMetadata": {
+    "template": {
+      "name": "CUSTOM_TEMPLATE",
+      "type": "EMBEDDED_RENDERER",
+      "url": "https://localhost:3000/renderer"
+    },
+    "proof": {
+      "type": "OpenAttestationProofMethod",
+      "method": "DID",
+      "value": "did:ethr:0xB26B4941941C51a4885E5B7D3A1B861E54405f90",
+      "revocation": {
+        "type": "REVOCATION_STORE",
+        "location": "0xc7dfB2D05ab3Da91e723F2557817165e6acEAc38"
+      }
+    },
+    "identityProof": {
+      "type": "DNS-DID",
+      "identifier": "example.tradetrust.io"
+    }
+  },
+  "attachments": [
+    {
+      "fileName": "sample.pdf",
+      "mimeType": "application/pdf",
+      "data": "BASE64_ENCODED_FILE"
+    }
+  ],
+  "proof": {
+    "type": "OpenAttestationMerkleProofSignature2018",
+    "proofPurpose": "assertionMethod",
+    "targetHash": "f2a180a23e7c9917513092d4f315e9aac963388d703d20da2760788032b687b0",
+    "proofs": [],
+    "merkleRoot": "f2a180a23e7c9917513092d4f315e9aac963388d703d20da2760788032b687b0",
+    "salts": "W3sidmFsdWUiOiJjYjJiZWU5ZTRhYjhiNmQyOGVjNzg0ODNiOTllYzQ0YjI5OTZkNGJiMDU4ZGM5NmJlODZhYjMyMDMwZDkzZDAzIiwicGF0aCI6InZlcnNpb24ifSx7InZhbHVlIjoiYjY1YzA4OGVkMGU0NGY0YjFkODQ3ZDhmYzk4OTJlY2M2OTkzMGM3YTE1MTVhODczN2FkMTkwY2Q0MmY5NDdhYiIsInBhdGgiOiJAY29udGV4dFswXSJ9LHsidmFsdWUiOiJjODZjZTIyNzk2NWY1ZDU1MTI2ZjVhNDNlOThmZjhkMWNhZGZjZDM1YzVkOWI5N2ZiNzk4NWRmYzg5MTAxYjAxIiwicGF0aCI6IkBjb250ZXh0WzFdIn0seyJ2YWx1ZSI6ImUyMTgyNzM1NjY3MGM5NjdjNWQ3YWFjZjVhOWE2YmIxMDBmZDg4YzczNDcyMjZlNDg0ZDVmNzY4YTgxNzU3MTYiLCJwYXRoIjoiQGNvbnRleHRbMl0ifSx7InZhbHVlIjoiMWYxNTgyYjcyYjAyMmViZmFlNzMxMzliNzJmM2FlOGVjYTdiOWUxZTgyNGNjMjc5ZTRiZjJmOGZmMDI2MTNlZSIsInBhdGgiOiJAY29udGV4dFszXSJ9LHsidmFsdWUiOiIyZmU0MjZiMGEwYjIyNjE3MzgzNGUwM2NlZDE4N2ZiMDFmMjQxOTA3YjEwOTZhOTk3OWQ2MTc2ZDk1ZWVmYjg2IiwicGF0aCI6InJlZmVyZW5jZSJ9LHsidmFsdWUiOiJlNTI3YTc2NzY3YTZiYzQ2ZjIzMzkwODM3MDNiN2Y3MmRkYjYyMDE4ZGM2MjRkYjU5NDI1MGQxYTUzOWNkMjUxIiwicGF0aCI6Im5hbWUifSx7InZhbHVlIjoiNmM5YzNhYzlhYzJhMDQ4ZGU3ZjFhZTdlNWQwYzc3NTU1M2M5MjYxYWEyZjI2YjU3OTIxNTNhMjc3MDUzYzUwNCIsInBhdGgiOiJpc3N1YW5jZURhdGUifSx7InZhbHVlIjoiODEzMThkNTdlNTgxMmMxOGExN2I0NGU4NTc2YWY5YmIzM2IyYmM1ODVlMWE0Mzk3MTY0ODdiYTUzMWMzYTExNiIsInBhdGgiOiJ2YWxpZEZyb20ifSx7InZhbHVlIjoiNjY2YjVkNzgyYjk4N2M5ZDBmZmNmOTVjYWVkMWIzOGU3ZTY5NTY0Njg1Yjg1ZjM1OTk3NTU1OTJmNWMzY2EyNyIsInBhdGgiOiJpc3N1ZXIuaWQifSx7InZhbHVlIjoiODA2MDZjNWFkNWY2NDQxMjgyMzJhYTQzYmUwZmZiNzBhODAwNjYzMTI1OWRhNDE3MjFhMWMxN2M0MWFiMzBmZCIsInBhdGgiOiJpc3N1ZXIudHlwZSJ9LHsidmFsdWUiOiI3MGYxMDdhZmM5MWQxODNkOWEyY2ViNjM2ZjZlNWEyYmQwZDY5ZTMwMDM2Y2RkM2RhNWNjNzk1MzRlN2M0ODI3IiwicGF0aCI6Imlzc3Vlci5uYW1lIn0seyJ2YWx1ZSI6IjBkN2UxOTYxMDMyNzAxZjJhYzg0ZmRjNjkwZThkOGQ4YTRmZjAxNjBjMmIxYWM4ZWVjMGUwNDJkZjJiODhhYTQiLCJwYXRoIjoidHlwZVswXSJ9LHsidmFsdWUiOiIwYzU5N2YwZWYyM2YxNTc2MDEwYmJiYzk0MWFlMGM1NTQ5NzRiMjQ1MTkzYjFkYjQ1MjY1ZDdiN2M4ODliNjcyIiwicGF0aCI6InR5cGVbMV0ifSx7InZhbHVlIjoiNzExYWZhZTExZWM2Yjg2NDVjYzQ0NWU1ZWY4Nzc1MzA0YThkMWJhYmExNWUxM2M1MTdiODI3NWRjMDgyZDNjMyIsInBhdGgiOiJ0eXBlWzJdIn0seyJ2YWx1ZSI6Ijk4YzZiYjY2Y2FkMDM4ZjNjYmViNzYyZmQwZjI3NzFmNDk0YzU2ZmE3ZTQ0YTIzNGY0MjExNjhhNDMxNzM0MjAiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QuaWQifSx7InZhbHVlIjoiNzFlYjA3MTI1ODI4MGE3OGE0Yjk1MGNlMzIwM2YwZTI4OGRkYmIxM2Y4NDE5MjdiNTI2NmVkOWYxNGZlYTlhYSIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5jbGFzc1swXS50eXBlIn0seyJ2YWx1ZSI6IjAxODBhZjhjYjhiNGM4MWViNzY4NDY1MjhkNmNhMmE5OThhMjgyOGIwNmUxMzFkMWQ3MWRkMTNiMDIyOWNkYjEiLCJwYXRoIjoiY3JlZGVudGlhbFN1YmplY3QuY2xhc3NbMF0uZWZmZWN0aXZlRGF0ZSJ9LHsidmFsdWUiOiI2YmZmZmQzOGUwNDUzZTIwNzQ3YTEzNjJjYzFlOTEwNWI5Mzk0Y2U5MzdlM2M2MTViMDVmNmEyMGFmMjdkY2E4IiwicGF0aCI6ImNyZWRlbnRpYWxTdWJqZWN0LmNsYXNzWzFdLnR5cGUifSx7InZhbHVlIjoiNmQzOGY0OTliNjA1NzJkYmZkNDNhYjk0OTUwOGFmOTE1MjNjNDZiMTEzYmZjNmI2NTkyODlkZGZmYWQzNDM0NyIsInBhdGgiOiJjcmVkZW50aWFsU3ViamVjdC5jbGFzc1sxXS5lZmZlY3RpdmVEYXRlIn0seyJ2YWx1ZSI6ImE4ZDI0Yzk1ZDE0NGRkNmZiYjRhZjBmY2NiNzQ4MTdiOWE2ZTA0MDNmZTEyMTNhYWEyOTAxN2VhNzkwYjA2NTMiLCJwYXRoIjoib3BlbkF0dGVzdGF0aW9uTWV0YWRhdGEudGVtcGxhdGUubmFtZSJ9LHsidmFsdWUiOiJkYTg0NTgyYWFiNWFmNTU1MWIwYzg2MmFiMzllZDNmZWE1OWVmZDZiNWUzODc2ZGE3NmIwMTY5NjIyYWFhMGM1IiwicGF0aCI6Im9wZW5BdHRlc3RhdGlvbk1ldGFkYXRhLnRlbXBsYXRlLnR5cGUifSx7InZhbHVlIjoiMWY2ZDRiNWY0MjEzMTIyZjBlZmE4ZTI1YzUzZGEyMzZjYzhjZDA0YTk4NTAxN2Y5Y2NiYjE3OTk2N2U3MThhYyIsInBhdGgiOiJvcGVuQXR0ZXN0YXRpb25NZXRhZGF0YS50ZW1wbGF0ZS51cmwifSx7InZhbHVlIjoiNDE3NDNlZjEwNjcyNTVjZDk3ZjZhMDJjNjg0YjZjMWJiMjEyNzdlYzM0ODQyMWE3NWY2YzcyOWIyODdlZDIwMSIsInBhdGgiOiJvcGVuQXR0ZXN0YXRpb25NZXRhZGF0YS5wcm9vZi50eXBlIn0seyJ2YWx1ZSI6IjllZmVkOGQwYWVhM2UwYTcwZWQzMGFhMDIzNGUyZDhlNmIyOGEwNmRiYTVhZjE4Y2NjNDA5ZTdlNmUwOTEwYzciLCJwYXRoIjoib3BlbkF0dGVzdGF0aW9uTWV0YWRhdGEucHJvb2YubWV0aG9kIn0seyJ2YWx1ZSI6ImI5MmMyMjM3Mzg3NmZjNWNiNzY5ZDAxMzhkZGVlOGE5YTNhMDMzY2FjNjNjNDMwMzAxN2E5ZGEyYzMyM2YyODMiLCJwYXRoIjoib3BlbkF0dGVzdGF0aW9uTWV0YWRhdGEucHJvb2YudmFsdWUifSx7InZhbHVlIjoiZDQ0ZWIyNDI1MzE0ZjUwOGY4OTEzNWRmOTk5Yjg0OTQyMTY1ZTY0MjUyZGZkMTIxNTU3MjM3OWM1ZmI2MmIxZSIsInBhdGgiOiJvcGVuQXR0ZXN0YXRpb25NZXRhZGF0YS5wcm9vZi5yZXZvY2F0aW9uLnR5cGUifSx7InZhbHVlIjoiNDZhOTdiOGM4NmVjOWFjZjNjZTViOTE1M2UxYWRlNDAzOTc1YzExMWJmODNlNzhkMjQ0MTNhYTE4YTE4YjQ4MCIsInBhdGgiOiJvcGVuQXR0ZXN0YXRpb25NZXRhZGF0YS5wcm9vZi5yZXZvY2F0aW9uLmxvY2F0aW9uIn0seyJ2YWx1ZSI6IjgyOGJmNDA5YTdhNDg2MDc4Y2ZlMmJlZTFhMDhkYmQ0NWM4ZmYxZjI5NTAyYzdjOTk5NjVjNGFmZGU2NGJhOTAiLCJwYXRoIjoib3BlbkF0dGVzdGF0aW9uTWV0YWRhdGEuaWRlbnRpdHlQcm9vZi50eXBlIn0seyJ2YWx1ZSI6IjMzZDUxZTY2ZTdjNDQyOWJmMTkzODI3NjU4OGUxMjllZDlmYTEzYmRjYzU2M2U1N2M5YmViYmVkY2E2MzVkNjIiLCJwYXRoIjoib3BlbkF0dGVzdGF0aW9uTWV0YWRhdGEuaWRlbnRpdHlQcm9vZi5pZGVudGlmaWVyIn0seyJ2YWx1ZSI6ImQ2YjUyM2FhYTY1YjNjNWM2NGQyNTgxZmZhNzU3MzI1MDA5NzFlNGRjN2E3Y2Q0ZDBmNzNhNGFiNzRiNzgzYzkiLCJwYXRoIjoiYXR0YWNobWVudHNbMF0uZmlsZU5hbWUifSx7InZhbHVlIjoiZmY4MjRlNTVjNzExYzBmMzExZGVhMjhlYTk5MjZjMDRhNzY4NTg5NTFlODA0NGUwMGJjNDExOGFkYzU5ZWI0MiIsInBhdGgiOiJhdHRhY2htZW50c1swXS5taW1lVHlwZSJ9LHsidmFsdWUiOiIzMjIwODhmYTAyMmQ3MmE3OWQ1MjJlODg4NDg1ZjI3YWZlNTcwZGY2OTRhMjNjN2Q1ODA0Njg0NzAyZWQ0ZDgzIiwicGF0aCI6ImF0dGFjaG1lbnRzWzBdLmRhdGEifV0=",
+    "privacy": {
+      "obfuscated": []
+    },
+    "key": "did:ethr:0xB26B4941941C51a4885E5B7D3A1B861E54405f90#controller",
+    "signature": "0xdac3c01326675b616419bcc7d8c81d419eb0da6d41fb0b2fa4c1b667b196b56119f49eabc0c62d4bd9c6a70f46251805c1c1344933fdc2206605d03b4138a2801c"
+  }
+}
