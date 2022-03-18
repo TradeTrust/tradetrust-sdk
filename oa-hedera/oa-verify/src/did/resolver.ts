@@ -5,6 +5,7 @@ import NodeCache from "node-cache";
 import { INFURA_API_KEY } from "../config";
 import { generateProvider } from "../common/utils";
 import { HcsDid } from "@hashgraph/did-sdk-js";
+import { PublicKey } from "@hashgraph/sdk";
 
 export interface EthrResolverConfig {
   networks: Array<{
@@ -63,8 +64,11 @@ const hederaResolve = async (
   publicKey: string
 ): Promise<DIDResolutionResult> => {
   let parsedDid;
+  let controller;
   try {
     parsedDid = HcsDid.fromString(did.split("#").join(";"));
+    let publicKeyDid = new HcsDid(parsedDid.getNetwork(), PublicKey.fromString(publicKey), parsedDid.getAddressBookFileId());
+    controller = publicKeyDid.toString().split(";").join("#");
   } catch (e) {
     return {
       didResolutionMetadata: {
@@ -91,7 +95,7 @@ const hederaResolve = async (
       {
         id: `${did}#controllerKey`,
         type: verificationMethodTypes.Ed25519VerificationKey2018,
-        controller: did,
+        controller: controller,
         publicKeyHex: publicKey
       },
     ]
